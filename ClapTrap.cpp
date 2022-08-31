@@ -13,12 +13,16 @@ ClapTrap::ClapTrap(std::string const &name)
 ClapTrap::~ClapTrap() {
   std::cout << "ClapTrap " << name << " died" << std::endl;
 }
+
 ClapTrap::ClapTrap(ClapTrap const &src) { *this = src; }
 ClapTrap &ClapTrap::operator=(ClapTrap const &src) {
-  // TODO
-  static_cast<void>(src);
+  name = src.name;
+  hit = src.hit;
+  attack_damage = src.attack_damage;
+  energy = src.energy;
   return *this;
 }
+
 void ClapTrap::attack(const std::string &target) {
   if (energy <= 0 || hit <= 0)
     return;
