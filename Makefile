@@ -3,24 +3,22 @@ CXXFLAGS = -g -std=c++98 -Wall -Wextra -Werror
 CXX = c++
 
 SRC = main.cpp ClapTrap.cpp
-
+DEPS = $(SRC:.cpp=.d)
 OBJ = $(SRC:.cpp=.o)
 
 $(NAME): $(OBJ) $(SRC:.cpp:.d)
 	$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJ)
 
 %.o : %.cpp
-		$(CXX) -MMD $(CXXFLAGS) -c $< ;
+		$(CXX) $(CXXFLAGS) -c $< ;
 
 %.d: %.cpp
-		$(CXX) -MMD $(CXXFLAGS) $< ;
+	@set -e; rm -f $@; \
+		$(CC) -M $(CPPFLAGS) $< > $@.$$$$; \
+		sed 's,\($*\)\.o[ :]*,\1.o $@ : ,g' < $@.$$$$ > $@; \
+		rm -f $@.$$$$
 
-$(SRC:.cpp:.d): $(SRC)
-
-$(OBJ): $(SRC:.cpp:.d)
-
-include $(SRC:.cpp:.d)
-
+include $(DEPS)
 
 clean:
 	$(RM) *.o *.d $(NAME)
