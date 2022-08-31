@@ -1,18 +1,26 @@
 NAME = claptrap
-CXXFLAGS = -g -std=c++98 -Wall -Wextra -Werror  
+CXXFLAGS = -g -std=c++98 -Wall -Wextra -Werror
 CXX = c++
 
-SRC = $(wildcard *.cpp)
+SRC = main.cpp ClapTrap.cpp
+
 OBJ = $(SRC:.cpp=.o)
-$(NAME): $(OBJ)
+
+$(NAME): $(OBJ) $(SRC:.cpp:.d)
 	$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJ)
 
+%.o : %.cpp
+		$(CXX) -MMD $(CXXFLAGS) -c $< ;
+
+%.d: %.cpp
+		$(CXX) -MMD $(CXXFLAGS) $< ;
+
+$(SRC:.cpp:.d): $(SRC)
+
+$(OBJ): $(SRC:.cpp:.d)
+
 include $(SRC:.cpp:.d)
-%.d: %.c
-	set -e; rm -f $@; \
-	$(CC) -MM $(CPPFLAGS) $< > $@.$$$$; \
-	sed 's,\($*\)\.o[ :]*,\1.o $@ : ,g' < $@.$$$$ > $@; \
-	rm -f $@.$$$$
+
 
 clean:
 	$(RM) *.o *.d $(NAME)
