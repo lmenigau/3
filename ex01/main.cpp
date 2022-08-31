@@ -1,8 +1,8 @@
 #include "ScavTrap.hpp"
 int main(void) {
-  ScavTrap c;
+  // ScavTrap c;
   ScavTrap clap("Scavie");
-  ScavTrap clop = clap;
+  // ScavTrap clop = clap;
 
   clap.attack("Boss");
   clap.beRepaired(10);
