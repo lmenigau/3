@@ -8,4 +8,5 @@ int main(void) {
   clap.beRepaired(10);
   clap.takeDamage(10);
   clap.attack("Boss");
+  clap.guardGate();
 }

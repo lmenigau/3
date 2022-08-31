@@ -9,7 +9,9 @@ ScavTrap::ScavTrap(const std::string &name) : ClapTrap(name) {
   this->attack_damage = 50;
 }
 
-ScavTrap::~ScavTrap() {}
+ScavTrap::~ScavTrap() {
+  std::cout << "ScavTrap " << name << " died" << std::endl;
+}
 ScavTrap::ScavTrap(ScavTrap const &src) { *this = src; }
 ScavTrap &ScavTrap::operator=(ScavTrap const &src) {
   // TODO
@@ -17,6 +19,13 @@ ScavTrap &ScavTrap::operator=(ScavTrap const &src) {
   return *this;
 }
 
+void ScavTrap::attack(const std::string &target) {
+  if (energy <= 0 || hit <= 0)
+    return;
+  energy--;
+  std::cout << "ScavTrap " << name << " attacks " << target << " causing "
+            << attack_damage << " points of damage !" << std::endl;
+}
 void ScavTrap::guardGate(void) {
-  std::cout << "Scavtrap " << name << "has entered Guard mode";
+  std::cout << "Scavtrap " << name << " has entered Guard mode" << std::endl;
 }

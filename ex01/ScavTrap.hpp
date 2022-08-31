@@ -11,6 +11,7 @@ public:
   virtual ~ScavTrap();
   ScavTrap &operator=(ScavTrap const &src);
   ScavTrap(ScavTrap const &src);
+  void attack(const std::string &target);
 
   void guardGate();
 };
