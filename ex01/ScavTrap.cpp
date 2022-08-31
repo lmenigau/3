@@ -1,7 +1,10 @@
 #include "ScavTrap.hpp"
+#include <iostream>
 
 ScavTrap::ScavTrap() {}
-ScavTrap::ScavTrap(const std::string &name) : ClapTrap(name) {}
+ScavTrap::ScavTrap(const std::string &name) : ClapTrap(name) {
+  std::cout << "Scavtrap " << name << " initialized" << std::endl;
+}
 
 ScavTrap::~ScavTrap() {}
 ScavTrap::ScavTrap(ScavTrap const &src) { *this = src; }
