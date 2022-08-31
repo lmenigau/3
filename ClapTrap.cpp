@@ -36,8 +36,9 @@ void ClapTrap::takeDamage(unsigned int amount) {
             << std::endl;
 }
 void ClapTrap::beRepaired(unsigned int amount) {
-  if (hit > 0)
-    hit += amount;
+  if (energy <= 0 || hit <= 0)
+    return;
+  energy--;
   std::cout << "ClapTrap " << name << " gets repaired by " << amount
             << " amount" << std::endl;
 }
