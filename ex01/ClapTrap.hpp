@@ -4,12 +4,12 @@
 
 class ClapTrap {
 private:
+protected:
   std::string name;
   int hit;
   int energy;
   int attack_damage;
 
-protected:
 public:
   ClapTrap();
   virtual ~ClapTrap();

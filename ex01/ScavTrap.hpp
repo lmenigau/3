@@ -11,6 +11,8 @@ public:
   virtual ~ScavTrap();
   ScavTrap &operator=(ScavTrap const &src);
   ScavTrap(ScavTrap const &src);
+
+  void guardGate();
 };
 
 #endif // !SCAVTRAP_HPP
