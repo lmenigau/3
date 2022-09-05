@@ -6,8 +6,7 @@ ClapTrap::ClapTrap()
   std::cout << "ClapTrap " << name << " is alive and well" << std::endl;
 }
 ClapTrap::ClapTrap(std::string const &name)
-    : name("default name"), hit(10), energy(10), attack_damage(0) {
-  this->name = name;
+    : name(name), hit(10), energy(10), attack_damage(0) {
   std::cout << "ClapTrap " << name << " is alive and well" << std::endl;
 }
 ClapTrap::~ClapTrap() {
