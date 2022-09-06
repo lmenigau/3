@@ -1,12 +1,12 @@
 #include "FragTrap.hpp"
 int main(void) {
   // Fragtrap c;
-  FragTrap clap("Scavie");
+  FragTrap frag("Fragie");
   // FragTrap clop = clap;
 
-  clap.attack("Boss");
-  clap.beRepaired(10);
-  clap.takeDamage(10);
-  clap.attack("Boss");
-  clap.highFivesGuys();
+  frag.attack("Boss");
+  frag.beRepaired(10);
+  frag.takeDamage(10);
+  frag.attack("Boss");
+  frag.highFivesGuys();
 }
