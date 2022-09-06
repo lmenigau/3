@@ -24,5 +24,5 @@ void FragTrap::attack(const std::string &target) {
             << attack_damage << " points of damage !\n";
 }
 void FragTrap::highFivesGuys(void) {
-  std::cout << "FragTrap " << name << " has entered Guard mode\n";
+  std::cout << "FragTrap " << name << " High Fives Guys ?\n";
 }
