@@ -6,7 +6,7 @@ ScavTrap::ScavTrap(const std::string &name) : ClapTrap(name) {
   std::cout << "Scavtrap " << name << " initialized\n";
   this->hit = 100;
   this->energy = 50;
-  this->attack_damage = 50;
+  this->attack_damage = 20;
 }
 
 ScavTrap::~ScavTrap() { std::cout << "ScavTrap " << name << " died\n"; }
